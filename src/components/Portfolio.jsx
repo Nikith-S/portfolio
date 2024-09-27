@@ -2,23 +2,33 @@ import React from "react";
 import ecommerce from "../assets/portfolio/Ecommerce.png";
 import chatapp from "../assets/portfolio/chatApp.png";
 import eraser from "../assets/portfolio/eraser.jpeg";
+import solana from "../assets/portfolio/solona.jpeg";
 
 const Portfolio = () => {
   const portfolios = [
     {
       id: 1,
-      src: ecommerce,
-      codeLink: "https://github.com/Nikith-S/mern_E-commerce_app",
+      src: solana,
+      codeLink: "https://github.com/Nikith-S/SolanaSols",
+      demoLink: "https://nikith-solana-sols.vercel.app/",
     },
     {
       id: 2,
-      src: chatapp,
-      codeLink: "https://github.com/Nikith-S/Chat_App",
+      src: ecommerce,
+      codeLink: "https://github.com/Nikith-S/mern_E-commerce_app",
+      demoLink: "", // Add a demo link if available
     },
     {
       id: 3,
+      src: chatapp,
+      codeLink: "https://github.com/Nikith-S/Chat_App",
+      demoLink: "", // Add a demo link if available
+    },
+    {
+      id: 4,
       src: eraser,
       codeLink: "https://github.com/Nikith-S/eraser.io",
+      demoLink: "", // Add a demo link if available
     },
   ];
 
@@ -36,7 +46,7 @@ const Portfolio = () => {
         </div>
 
         <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-8 px-12 sm:px-0">
-          {portfolios.map(({ id, src, codeLink }) => (
+          {portfolios.map(({ id, src, codeLink, demoLink }) => (
             <div key={id} className="shadow-md shadow-gray-600 rounded-lg">
               <img
                 src={src}
@@ -54,6 +64,13 @@ const Portfolio = () => {
                 </button>
                 <button
                   className="w-1/2 px-6 py-3 m-4 duration-200 hover:scale-105 cursor-default"
+                  onClick={() => {
+                    if (demoLink) {
+                      window.location.href = demoLink;
+                    } else {
+                      alert("Demo not available");
+                    }
+                  }}
                 >
                   Demo
                 </button>
